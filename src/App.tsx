@@ -5,12 +5,13 @@ import {AboutLazy} from "./pages/About/About.lazy";
 import {MainLazy} from "./pages/Main/Main.lazy";
 import {Theme} from "./theme/ThemeContext";
 import {useTheme} from "./theme/useTheme";
+import {classNames} from "./helpers/classNames/classNames";
 
 
 const App = () => {
     const {theme, toggleTheme} = useTheme()
     return (
-        <div className={`app ${theme}`}>
+        <div className={classNames('app', [theme], {})}>
             <div>
                 <button onClick={toggleTheme}>{theme === Theme.DARK ? Theme.LIGHT : Theme.DARK}</button>
             </div>
