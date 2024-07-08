@@ -1,11 +1,10 @@
-import React, {Suspense} from 'react';
-import {Link, Route, Routes} from 'react-router-dom';
+import React from 'react';
+import {Link} from 'react-router-dom';
 import './styles/index.scss'
 import {useTheme} from "app/providers/ThemeProvider";
 import {classNames} from "shared/lib/classNames/classNames";
 import {Theme} from "app/providers/ThemeProvider/lib/ThemeContext";
-import {About} from "pages/About";
-import {Main} from "pages/Main";
+import {AppRouter} from "app/providers/router";
 
 
 const App = () => {
@@ -17,12 +16,7 @@ const App = () => {
             </div>
             <Link to={'/'}>Главная</Link>
             <Link to={'/about'}>О сайте</Link>
-            <Suspense fallback={<div>Loading...</div>}>
-                <Routes>
-                    <Route path={'/about'} element={<About/>}/>
-                    <Route path={'/'} element={<Main/>}/>
-                </Routes>
-            </Suspense>
+            <AppRouter/>
         </div>
     );
 };
